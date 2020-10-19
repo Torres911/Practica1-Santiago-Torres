@@ -80,10 +80,42 @@ namespace Codigo.Granja{
                     tempo.setEstado("Arreglando Temperatura Cultivos");
                     foreach(Cultivo temp in Cultivos){
                         if(temp.getTemperatura() < 18 || temp.getTemperatura() > 25){
-                            temp.setTemperatura(random.Next(18,25));
+                            temp.setTemperatura(Random.Next(18,25));
                         }
                     }
                     break;
+                }
+            }
+            if(flag == false){
+                Console.WriteLine("No hay Robots Disponibles");
+                break;
+            }
+        }
+
+        public void RegarCultivos(){
+            bool flag = false;
+            foreach(Robot tempo in Robots){
+                if(tempo.getEstado() == "Disponible" && tempo.getCantAgua() > 10){
+                    tempo.setCantAgua(tempo.getCantAgua() - Random.Next(1,10));
+                    break;
+                }else if(tempo.getEstado() == "Disponible" && tempo.getCantAgua() < 10){
+                    Console.WriteLine("El robot no tiene suficiente agua para regar los cultivos");
+                }
+            }
+            if(flag == false){
+                Console.WriteLine("No hay Robots Disponibles");
+                break;
+            }
+        }
+
+        public void PlantarSemillas(){
+            bool flag = false;
+            foreach(Robot tempo in Robots){
+                if(tempo.getEstado() == "Disponible" && tempo.getCantSemillas() > 10){
+                    tempo.setCantSemillas(tempo.getCantSemillas() - Random.Next(1,10));
+                    break;
+                }else if(tempo.getEstado() == "Disponible" && tempo.getCantSemillas() < 10){
+                    Console.WriteLine("El robot no tiene suficiente agua para regar los cultivos");
                 }
             }
             if(flag == false){
