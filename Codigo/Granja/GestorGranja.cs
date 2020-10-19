@@ -113,9 +113,15 @@ namespace Codigo.Granja{
             foreach(Robot tempo in Robots){
                 if(tempo.getEstado() == "Disponible" && tempo.getCantSemillas() > 10){
                     tempo.setCantSemillas(tempo.getCantSemillas() - Random.Next(1,10));
+
+
+                    //FALTA AGREGAR ELEMENTOS A LA LISTA CULTIVOS EN ESTE PASO
+
+
+
                     break;
                 }else if(tempo.getEstado() == "Disponible" && tempo.getCantSemillas() < 10){
-                    Console.WriteLine("El robot no tiene suficiente agua para regar los cultivos");
+                    Console.WriteLine("El robot no tiene suficiente semillas para cultivar mas");
                 }
             }
             if(flag == false){
