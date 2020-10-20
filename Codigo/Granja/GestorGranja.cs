@@ -21,7 +21,6 @@ namespace Codigo.Granja{
             cant = Console.ReadLine();
             for(int i = 0; i < cant; i++){
                 granjaSeleccionada.Robots.Add(new crearRobot());
-                
             }
         }
 
