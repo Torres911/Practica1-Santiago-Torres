@@ -7,26 +7,33 @@ using Codigo.Cultivos;
 
 namespace Codigo.Granja{
 
-    public class GestorGranja : Granja{
+    public class GestorGranja{
+        #region Properties
 
+        private Granja granjaSeleccionada;
+
+        #endregion Properties
+
+        #region Methods
         public void DefinirCantRobots(){
             int cant;
             Console.WriteLine("Digite la cantidad de robots que necesita agregar a su granja: ");
             cant = Console.ReadLine();
             for(int i = 0; i < cant; i++){
-                Robots.Add(new crearRobot());
+                granjaSeleccionada.Robots.Add(new crearRobot());
+                
             }
         }
 
         public void MoverCultivosDomo(){
             bool flag = false;
-            foreach(Robot tempo in Robots){
+            foreach(Robot tempo in granjaSeleccionada.Robots){
                 if(tempo.getEstado() == "Disponible"){
                     tempo.setEstado("Moviendo Cultivos Dentro Domo");
-                    foreach(Cultivo temp in Cultivos){
-                        Domo.Add(temp);
+                    foreach(Cultivo temp in granjaSeleccionada.Cultivos){
+                        granjaSeleccionada.Domo.Add(temp);
                     }
-                    Cultivos.clear();
+                    granjaSeleccionada.Cultivos.clear();
                     break;
                 }
             }
@@ -38,13 +45,13 @@ namespace Codigo.Granja{
 
         public void MoverCultivosFueraDomo(){
             bool flag = false;
-            foreach(Robot tempo in Robots){
+            foreach(Robot tempo in granjaSeleccionada.Robots){
                 if(tempo.getEstado() == "Disponible"){
                     tempo.setEstado("Moviendo Cultivos Fuera Domo");
-                    foreach(Cultivo temp in Domo){
-                        Cultivos.Add(temp);
+                    foreach(Cultivo temp in granjaSeleccionada.Domo){
+                        granjaSeleccionada.Cultivos.Add(temp);
                     }
-                    Domo.clear();
+                    granjaSeleccionada.Domo.clear();
                     break;
                 }
             }
@@ -56,10 +63,10 @@ namespace Codigo.Granja{
 
         public void RevisarTemperatura(){
             bool flag = false;
-            foreach(Robot tempo in Robots){
+            foreach(Robot tempo in granjaSeleccionada.Robots){
                 if(tempo.getEstado() == "Disponible"){
                     tempo.setEstado("Revisando Temperatura");
-                    foreach(Cultivo temp in Cultivos){
+                    foreach(Cultivo temp in granjaSeleccionada.Cultivos){
                         if(temp.getTemperatura() < 18 || temp.getTemperatura() > 25){
                             Console.WriteLine("El cultivo " + temp.getTipoCultivo() + " se encuentra por encima de la temperatura apropiada");
                         }
@@ -75,10 +82,10 @@ namespace Codigo.Granja{
 
         public void ArreglarTemperaturaCultivos(){
             bool flag = false;
-            foreach(Robot tempo in Robots){
+            foreach(Robot tempo in granjaSeleccionada.Robots){
                 if(tempo.getEstado() == "Disponible"){
                     tempo.setEstado("Arreglando Temperatura Cultivos");
-                    foreach(Cultivo temp in Cultivos){
+                    foreach(Cultivo temp in granjaSeleccionada.Cultivos){
                         if(temp.getTemperatura() < 18 || temp.getTemperatura() > 25){
                             temp.setTemperatura(Random.Next(18,25));
                         }
@@ -94,7 +101,7 @@ namespace Codigo.Granja{
 
         public void RegarCultivos(){
             bool flag = false;
-            foreach(Robot tempo in Robots){
+            foreach(Robot tempo in granjaSeleccionada.Robots){
                 if(tempo.getEstado() == "Disponible" && tempo.getCantAgua() > 10){
                     tempo.setCantAgua(tempo.getCantAgua() - Random.Next(1,10));
                     break;
@@ -110,7 +117,7 @@ namespace Codigo.Granja{
 
         public void PlantarSemillas(){
             bool flag = false;
-            foreach(Robot tempo in Robots){
+            foreach(Robot tempo in granjaSeleccionada.Robots){
                 if(tempo.getEstado() == "Disponible" && tempo.getCantSemillas() > 10){
                     tempo.setCantSemillas(tempo.getCantSemillas() - Random.Next(1,10));
 
@@ -129,7 +136,7 @@ namespace Codigo.Granja{
                 break;
             }
         }
-
+        #endregion Methods
     }
 
 }

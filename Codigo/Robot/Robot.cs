@@ -11,7 +11,7 @@ namespace Codigo.Robot{
         private int CantSemillas;
 
         #endregion Properties
-
+        
         #region Getters & Setters
 
         public string getEstado(){

@@ -4,26 +4,32 @@ using Codigo.Robot;
 
 namespace Codigo.Robot{
 
-    public class GestorRobot : Robot{
+    public class GestorRobot{
+
+        #region Properties
+
+        private Robot robotSeleccionado;
+
+        #endregion Properties
 
         #region Methods
 
         public crearRobot(){
-            Estado = "Disponible";
-            CantAgua = 1000;
-            CantSemillas = 1000;
+            robotSeleccionado.setEstado("Disponible");
+            robotSeleccionado.setCantAgua(1000);
+            robotSeleccionado.setCantSemillas(1000);
         }
 
         public void LiberarRobot(){
-            Estado = "Disponible";
+            robotSeleccionado.setEstado("Disponible");
         }
 
         public void LlenarAgua(){
-            CantAgua = 1000;
+            robotSeleccionado.setCantAgua(1000);
         }
 
         public void LlenarSemillas(){
-            CantSemillas = 1000;
+            robotSeleccionado.setCantSemillas(1000);
         }
 
         #endregion Methods
