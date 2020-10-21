@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Codigo.Robot;
-using Codigo.Cultivos;
+using Codigo.Cultivo;
 
 
 namespace Codigo.Granja{
@@ -9,29 +9,51 @@ namespace Codigo.Granja{
     public class Granja{
         
         #region Properties
-        private List<Robot> robots = new List<Robot>();
-        private List<Cultivo> cultivos = new List<Cultivo>();
-        private List<Cultivo> domo = new List<Cultivo>();
+        private List<Robot.Robot> robots = new List<Robot.Robot>();
+        private List<Cultivo.Cultivo> cultivos = new List<Cultivo.Cultivo>();
+        private List<Cultivo.Cultivo> domo = new List<Cultivo.Cultivo>();
+
         #endregion Properties
 
         #region Getters & Setters
-        
-        public List<Robot> Robots{
-            get { return robots; }
-            set { robots = value; }
+
+        public List<Robot.Robot> getRobots(){ 
+            return robots;
         }
 
-        public List<Cultivo> Cultivos{
-            get { return cultivos; }
-            set { cultivos = value; }
+        public void setRobots(Robot.Robot value){ 
+            robots.Add(value);
         }
 
-        public List<Cultivo> Domo{
-            get { return domo; }
-            set { domo = value; }
+        public List<Cultivo.Cultivo> getCultivos(){ 
+            return cultivos;
+        }
+
+        public void setCultivos(Cultivo.Cultivo value){ 
+            cultivos.Add(value);
+        }
+
+        public List<Cultivo.Cultivo> getDomo(){ 
+            return domo;
+        }
+
+        public void setDomo(Cultivo.Cultivo value){ 
+            domo.Add(value);
         }
 
         #endregion Getters & Setters
+
+        #region Methods
+
+        public void limpiarCultivos(){
+            cultivos.Clear();
+        }
+
+        public void limpiarDomo(){
+            domo.Clear();
+        }
+
+        #endregion Methods
 
     }
 

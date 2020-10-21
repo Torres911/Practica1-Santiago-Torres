@@ -1,28 +1,20 @@
 using System;
 
 
-namespace Codigo.Cultivos{
+namespace Codigo.Cultivo{
 
     public class Cultivo{
 
         #region Properties
-        private string Estado;
+
         private int Temperatura;
-        private string TipoCultivo;
+        private int TipoCultivo;
 
         #endregion Properties
 
         #region Getters & Setters
 
-        public string getEstado(){
-            return Estado;
-        }
-
-        public void setEstado(string est){
-            this.Estado = est;
-        }
-
-        public int Temperatura(){
+        public int getTemperatura(){
             return Temperatura;
         }
 
@@ -30,15 +22,25 @@ namespace Codigo.Cultivos{
             this.Temperatura = temp;
         }
 
-        public string getTipoCultivo(){
+        public int getTipoCultivo(){
             return TipoCultivo;
         }
 
-        public void setTipoCultivo(string tc){
+        public void setTipoCultivo(int tc){
             this.TipoCultivo = tc;
         }
 
         #endregion Getters & Setters
+
+        #region Methods
+
+        public Cultivo(){
+            Random rand  = new Random();
+            TipoCultivo = rand.Next(1,4);
+            Temperatura = rand.Next(0,100);
+        }
+
+        #endregion Methods
 
     }
 }

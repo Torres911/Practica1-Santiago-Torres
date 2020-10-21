@@ -1,0 +1,13 @@
+D:\Universidad\Semestre V\Programacion Orientada a Objetos\Practica 1\Practica1-Santiago-Torres\Codigo\obj\Debug\netcoreapp3.1\Codigo.csprojAssemblyReference.cache
+D:\Universidad\Semestre V\Programacion Orientada a Objetos\Practica 1\Practica1-Santiago-Torres\Codigo\obj\Debug\netcoreapp3.1\Codigo.AssemblyInfoInputs.cache
+D:\Universidad\Semestre V\Programacion Orientada a Objetos\Practica 1\Practica1-Santiago-Torres\Codigo\obj\Debug\netcoreapp3.1\Codigo.AssemblyInfo.cs
+D:\Universidad\Semestre V\Programacion Orientada a Objetos\Practica 1\Practica1-Santiago-Torres\Codigo\obj\Debug\netcoreapp3.1\Codigo.csproj.CoreCompileInputs.cache
+D:\Universidad\Semestre V\Programacion Orientada a Objetos\Practica 1\Practica1-Santiago-Torres\Codigo\bin\Debug\netcoreapp3.1\Codigo.exe
+D:\Universidad\Semestre V\Programacion Orientada a Objetos\Practica 1\Practica1-Santiago-Torres\Codigo\bin\Debug\netcoreapp3.1\Codigo.deps.json
+D:\Universidad\Semestre V\Programacion Orientada a Objetos\Practica 1\Practica1-Santiago-Torres\Codigo\bin\Debug\netcoreapp3.1\Codigo.runtimeconfig.json
+D:\Universidad\Semestre V\Programacion Orientada a Objetos\Practica 1\Practica1-Santiago-Torres\Codigo\bin\Debug\netcoreapp3.1\Codigo.runtimeconfig.dev.json
+D:\Universidad\Semestre V\Programacion Orientada a Objetos\Practica 1\Practica1-Santiago-Torres\Codigo\bin\Debug\netcoreapp3.1\Codigo.dll
+D:\Universidad\Semestre V\Programacion Orientada a Objetos\Practica 1\Practica1-Santiago-Torres\Codigo\bin\Debug\netcoreapp3.1\Codigo.pdb
+D:\Universidad\Semestre V\Programacion Orientada a Objetos\Practica 1\Practica1-Santiago-Torres\Codigo\obj\Debug\netcoreapp3.1\Codigo.dll
+D:\Universidad\Semestre V\Programacion Orientada a Objetos\Practica 1\Practica1-Santiago-Torres\Codigo\obj\Debug\netcoreapp3.1\Codigo.pdb
+D:\Universidad\Semestre V\Programacion Orientada a Objetos\Practica 1\Practica1-Santiago-Torres\Codigo\obj\Debug\netcoreapp3.1\Codigo.genruntimeconfig.cache

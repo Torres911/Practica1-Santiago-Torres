@@ -14,12 +14,6 @@ namespace Codigo.Robot{
 
         #region Methods
 
-        public crearRobot(){
-            robotSeleccionado.setEstado("Disponible");
-            robotSeleccionado.setCantAgua(1000);
-            robotSeleccionado.setCantSemillas(1000);
-        }
-
         public void LiberarRobot(){
             robotSeleccionado.setEstado("Disponible");
         }

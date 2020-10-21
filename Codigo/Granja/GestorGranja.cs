@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Codigo.Granja;
 using Codigo.Robot;
-using Codigo.Cultivos;
+using Codigo.Cultivo;
 
 
 namespace Codigo.Granja{
@@ -18,56 +18,55 @@ namespace Codigo.Granja{
         public void DefinirCantRobots(){
             int cant;
             Console.WriteLine("Digite la cantidad de robots que necesita agregar a su granja: ");
-            cant = Console.ReadLine();
+            cant = int.Parse(Console.ReadLine());
             for(int i = 0; i < cant; i++){
-                granjaSeleccionada.Robots.Add(new crearRobot());
+                Robot.Robot temp = new Robot.Robot();
+                granjaSeleccionada.setRobots(temp);
             }
         }
 
         public void MoverCultivosDomo(){
             bool flag = false;
-            foreach(Robot tempo in granjaSeleccionada.Robots){
+            foreach(Robot.Robot tempo in granjaSeleccionada.getRobots()){
                 if(tempo.getEstado() == "Disponible"){
                     tempo.setEstado("Moviendo Cultivos Dentro Domo");
-                    foreach(Cultivo temp in granjaSeleccionada.Cultivos){
-                        granjaSeleccionada.Domo.Add(temp);
+                    foreach(Cultivo.Cultivo temp in granjaSeleccionada.getCultivos()){
+                        granjaSeleccionada.setDomo(temp);
                     }
-                    granjaSeleccionada.Cultivos.clear();
+                    granjaSeleccionada.limpiarCultivos();
                     break;
                 }
             }
             if(flag == false){
                 Console.WriteLine("No hay Robots Disponibles");
-                break;
             }
         }
 
         public void MoverCultivosFueraDomo(){
             bool flag = false;
-            foreach(Robot tempo in granjaSeleccionada.Robots){
+            foreach(Robot.Robot tempo in granjaSeleccionada.getRobots()){
                 if(tempo.getEstado() == "Disponible"){
                     tempo.setEstado("Moviendo Cultivos Fuera Domo");
-                    foreach(Cultivo temp in granjaSeleccionada.Domo){
-                        granjaSeleccionada.Cultivos.Add(temp);
+                    foreach(Cultivo.Cultivo temp in granjaSeleccionada.getDomo()){
+                        granjaSeleccionada.setCultivos(temp);
                     }
-                    granjaSeleccionada.Domo.clear();
+                    granjaSeleccionada.limpiarDomo();
                     break;
                 }
             }
             if(flag == false){
                 Console.WriteLine("No hay Robots Disponibles");
-                break;
             }
         }
 
         public void RevisarTemperatura(){
             bool flag = false;
-            foreach(Robot tempo in granjaSeleccionada.Robots){
+            foreach(Robot.Robot tempo in granjaSeleccionada.getRobots()){
                 if(tempo.getEstado() == "Disponible"){
                     tempo.setEstado("Revisando Temperatura");
-                    foreach(Cultivo temp in granjaSeleccionada.Cultivos){
+                    foreach(Cultivo.Cultivo temp in granjaSeleccionada.getCultivos()){
                         if(temp.getTemperatura() < 18 || temp.getTemperatura() > 25){
-                            Console.WriteLine("El cultivo " + temp.getTipoCultivo() + " se encuentra por encima de la temperatura apropiada");
+                            Console.WriteLine("El cultivo de tipo " + temp.getTipoCultivo() + " se encuentra por encima de la temperatura apropiada");
                         }
                     }
                     break;
@@ -75,18 +74,19 @@ namespace Codigo.Granja{
             }
             if(flag == false){
                 Console.WriteLine("No hay Robots Disponibles");
-                break;
             }
         }
 
         public void ArreglarTemperaturaCultivos(){
             bool flag = false;
-            foreach(Robot tempo in granjaSeleccionada.Robots){
+            Random random = new Random();
+            int cant = random.Next(18,25);
+            foreach(Robot.Robot tempo in granjaSeleccionada.getRobots()){
                 if(tempo.getEstado() == "Disponible"){
                     tempo.setEstado("Arreglando Temperatura Cultivos");
-                    foreach(Cultivo temp in granjaSeleccionada.Cultivos){
+                    foreach(Cultivo.Cultivo temp in granjaSeleccionada.getCultivos()){
                         if(temp.getTemperatura() < 18 || temp.getTemperatura() > 25){
-                            temp.setTemperatura(Random.Next(18,25));
+                            temp.setTemperatura(cant);
                         }
                     }
                     break;
@@ -94,15 +94,16 @@ namespace Codigo.Granja{
             }
             if(flag == false){
                 Console.WriteLine("No hay Robots Disponibles");
-                break;
             }
         }
 
         public void RegarCultivos(){
             bool flag = false;
-            foreach(Robot tempo in granjaSeleccionada.Robots){
+            Random random  = new Random();
+            int cant = random.Next(1,10);
+            foreach(Robot.Robot tempo in granjaSeleccionada.getRobots()){
                 if(tempo.getEstado() == "Disponible" && tempo.getCantAgua() > 10){
-                    tempo.setCantAgua(tempo.getCantAgua() - Random.Next(1,10));
+                    tempo.setCantAgua(tempo.getCantAgua() - cant);
                     break;
                 }else if(tempo.getEstado() == "Disponible" && tempo.getCantAgua() < 10){
                     Console.WriteLine("El robot no tiene suficiente agua para regar los cultivos");
@@ -110,15 +111,16 @@ namespace Codigo.Granja{
             }
             if(flag == false){
                 Console.WriteLine("No hay Robots Disponibles");
-                break;
             }
         }
 
         public void PlantarSemillas(){
             bool flag = false;
-            foreach(Robot tempo in granjaSeleccionada.Robots){
+            Random random  = new Random();
+            int cant = random.Next(1,10);
+            foreach(Robot.Robot tempo in granjaSeleccionada.getRobots()){
                 if(tempo.getEstado() == "Disponible" && tempo.getCantSemillas() > 10){
-                    tempo.setCantSemillas(tempo.getCantSemillas() - Random.Next(1,10));
+                    tempo.setCantSemillas(tempo.getCantSemillas() - cant);
 
 
                     //FALTA AGREGAR ELEMENTOS A LA LISTA CULTIVOS EN ESTE PASO
@@ -132,7 +134,6 @@ namespace Codigo.Granja{
             }
             if(flag == false){
                 Console.WriteLine("No hay Robots Disponibles");
-                break;
             }
         }
         #endregion Methods

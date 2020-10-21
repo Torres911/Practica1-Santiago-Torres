@@ -22,7 +22,7 @@ namespace Codigo.Robot{
             this.Estado = est;
         }
 
-        public int CantAgua(){
+        public int getCantAgua(){
             return CantAgua;
         }
 
@@ -39,6 +39,16 @@ namespace Codigo.Robot{
         }
 
         #endregion Getters & Setters
+
+        #region Methods
+
+        public Robot(){
+            Estado = "Disponible";
+            CantAgua = 1000;
+            CantSemillas = 1000;
+        }
+
+        #endregion Methods
 
     }
 }
