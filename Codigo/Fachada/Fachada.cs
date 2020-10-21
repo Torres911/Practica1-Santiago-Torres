@@ -7,7 +7,7 @@ namespace Codigo.Fachada{
 
     public class Fachada{
         #region Properties
-        private Granja.GestorGranja GranjaFachada;
+        private Granja.GestorGranja GranjaFachada = new Granja.GestorGranja();
         #endregion Properties
 
         #region Methods
@@ -37,24 +37,54 @@ namespace Codigo.Fachada{
                 
                 switch (opc){
                     case 1:
+                        Console.WriteLine("***************************************************************************");
+                        GranjaFachada.DefinirCantRobots();
+                        Console.WriteLine("***************************************************************************");
                         break;
                     case 2:
+                        Console.WriteLine("***************************************************************************");
+                        GranjaFachada.PlantarSemillas();
+                        Console.WriteLine("***************************************************************************");
                         break;
                     case 3:
+                        Console.WriteLine("***************************************************************************");
+                        //GranjaFachada.liberarRobots();
+                        Console.WriteLine("***************************************************************************");
                         break;
                     case 4:
+                        Console.WriteLine("***************************************************************************");
+                        GranjaFachada.RevisarTemperatura();
+                        Console.WriteLine("***************************************************************************");
                         break;
                     case 5:
+                        Console.WriteLine("***************************************************************************");
+                        GranjaFachada.ArreglarTemperaturaCultivos();
+                        Console.WriteLine("***************************************************************************");
                         break;
                     case 6:
+                        Console.WriteLine("***************************************************************************");
+                        GranjaFachada.RegarCultivos();
+                        Console.WriteLine("***************************************************************************");
                         break;
                     case 7:
+                        Console.WriteLine("***************************************************************************");
+                        GranjaFachada.MoverCultivosDomo();
+                        Console.WriteLine("***************************************************************************");
                         break;
                     case 8:
+                        Console.WriteLine("***************************************************************************");
+                        GranjaFachada.MoverCultivosFueraDomo();
+                        Console.WriteLine("***************************************************************************");
                         break;
                     case 9:
+                        Console.WriteLine("***************************************************************************");
+                        //GranjaFachada.llenarAguaRobot();
+                        Console.WriteLine("***************************************************************************");
                         break;
                     case 10:
+                        Console.WriteLine("***************************************************************************");
+                        //GranjaFachada.llenarSemillasRobot();
+                        Console.WriteLine("***************************************************************************");
                         break;
                     case 11:
                         Console.WriteLine("***************************************************************************");
@@ -62,6 +92,9 @@ namespace Codigo.Fachada{
                         Console.WriteLine("***************************************************************************");
                         break;
                     default:
+                        Console.WriteLine("***************************************************************************");
+                        Console.WriteLine("                ¡Digite una opcion apropiada del menu!");
+                        Console.WriteLine("***************************************************************************");
                         break;
                 }
                 

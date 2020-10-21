@@ -121,12 +121,10 @@ namespace Codigo.Granja{
             foreach(Robot.Robot tempo in granjaSeleccionada.getRobots()){
                 if(tempo.getEstado() == "Disponible" && tempo.getCantSemillas() > 10){
                     tempo.setCantSemillas(tempo.getCantSemillas() - cant);
-
-
-                    //FALTA AGREGAR ELEMENTOS A LA LISTA CULTIVOS EN ESTE PASO
-
-
-
+                    for (int i = 0; i < cant; i++){
+                        Cultivo.Cultivo temp = new Cultivo.Cultivo();
+                        granjaSeleccionada.setCultivos(temp);
+                    }
                     break;
                 }else if(tempo.getEstado() == "Disponible" && tempo.getCantSemillas() < 10){
                     Console.WriteLine("El robot no tiene suficiente semillas para cultivar mas");
@@ -136,6 +134,25 @@ namespace Codigo.Granja{
                 Console.WriteLine("No hay Robots Disponibles");
             }
         }
+        /*
+        public void llenarSemillasRobot(){
+            foreach(Robot.GestorRobot tempo in granjaSeleccionada.getRobots()){
+                tempo.LlenarSemillas();
+            }
+        }
+
+        public void liberarRobots(){
+            foreach(Robot.GestorRobot tempo in granjaSeleccionada.getRobots()){
+                tempo.LiberarRobot();
+            }
+        }
+
+        public void llenarAguaRobot(){
+            foreach(Robot.GestorRobot tempo in granjaSeleccionada.getRobots()){
+                tempo.LlenarAgua();
+            }
+        }
+        */
         #endregion Methods
     }
 
