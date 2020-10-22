@@ -167,7 +167,7 @@ namespace Codigo.Granja{
 
         public void LlenarAguaRobot(){
             Robot.GestorRobot temp = new Robot.GestorRobot();
-            Console.WriteLine("Se ha abastecido a los robots con mas semillas.");
+            Console.WriteLine("Se ha abastecido a los robots con mas agua.");
             foreach(Robot.Robot tempo in granjaSeleccionada.getRobots()){
                 temp.LlenarAgua(tempo);
             }
