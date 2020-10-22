@@ -10,7 +10,7 @@ namespace Codigo.Granja{
     public class GestorGranja{
         #region Properties
 
-        private Granja granjaSeleccionada;
+        private Granja granjaSeleccionada = new Granja();
 
         #endregion Properties
 
@@ -32,6 +32,7 @@ namespace Codigo.Granja{
                     tempo.setEstado("Moviendo Cultivos Dentro Domo");
                     foreach(Cultivo.Cultivo temp in granjaSeleccionada.getCultivos()){
                         granjaSeleccionada.setDomo(temp);
+                        flag = true;
                     }
                     granjaSeleccionada.limpiarCultivos();
                     break;
@@ -49,6 +50,7 @@ namespace Codigo.Granja{
                     tempo.setEstado("Moviendo Cultivos Fuera Domo");
                     foreach(Cultivo.Cultivo temp in granjaSeleccionada.getDomo()){
                         granjaSeleccionada.setCultivos(temp);
+                        flag = true;
                     }
                     granjaSeleccionada.limpiarDomo();
                     break;
@@ -67,6 +69,7 @@ namespace Codigo.Granja{
                     foreach(Cultivo.Cultivo temp in granjaSeleccionada.getCultivos()){
                         if(temp.getTemperatura() < 18 || temp.getTemperatura() > 25){
                             Console.WriteLine("El cultivo de tipo " + temp.getTipoCultivo() + " se encuentra por encima de la temperatura apropiada");
+                            flag = true;
                         }
                     }
                     break;
@@ -87,6 +90,7 @@ namespace Codigo.Granja{
                     foreach(Cultivo.Cultivo temp in granjaSeleccionada.getCultivos()){
                         if(temp.getTemperatura() < 18 || temp.getTemperatura() > 25){
                             temp.setTemperatura(cant);
+                            flag = true;
                         }
                     }
                     break;
@@ -104,6 +108,8 @@ namespace Codigo.Granja{
             foreach(Robot.Robot tempo in granjaSeleccionada.getRobots()){
                 if(tempo.getEstado() == "Disponible" && tempo.getCantAgua() > 10){
                     tempo.setCantAgua(tempo.getCantAgua() - cant);
+                    tempo.setEstado("Regando Cultivos");
+                    flag = true;
                     break;
                 }else if(tempo.getEstado() == "Disponible" && tempo.getCantAgua() < 10){
                     Console.WriteLine("El robot no tiene suficiente agua para regar los cultivos");
@@ -122,8 +128,10 @@ namespace Codigo.Granja{
                 if(tempo.getEstado() == "Disponible" && tempo.getCantSemillas() > 10){
                     tempo.setCantSemillas(tempo.getCantSemillas() - cant);
                     for (int i = 0; i < cant; i++){
+                        tempo.setEstado("Plantando Semillas");
                         Cultivo.Cultivo temp = new Cultivo.Cultivo();
                         granjaSeleccionada.setCultivos(temp);
+                        flag = true;
                     }
                     break;
                 }else if(tempo.getEstado() == "Disponible" && tempo.getCantSemillas() < 10){
@@ -134,25 +142,28 @@ namespace Codigo.Granja{
                 Console.WriteLine("No hay Robots Disponibles");
             }
         }
-        /*
+
         public void llenarSemillasRobot(){
-            foreach(Robot.GestorRobot tempo in granjaSeleccionada.getRobots()){
-                tempo.LlenarSemillas();
+            Robot.GestorRobot temp = new Robot.GestorRobot();
+            foreach(Robot.Robot tempo in granjaSeleccionada.getRobots()){
+                temp.LlenarSemillas(tempo);
             }
         }
 
         public void liberarRobots(){
-            foreach(Robot.GestorRobot tempo in granjaSeleccionada.getRobots()){
-                tempo.LiberarRobot();
+            Robot.GestorRobot temp = new Robot.GestorRobot();
+            foreach(Robot.Robot tempo in granjaSeleccionada.getRobots()){
+                temp.LiberarRobot(tempo);
             }
         }
 
         public void llenarAguaRobot(){
-            foreach(Robot.GestorRobot tempo in granjaSeleccionada.getRobots()){
-                tempo.LlenarAgua();
+            Robot.GestorRobot temp = new Robot.GestorRobot();
+            foreach(Robot.Robot tempo in granjaSeleccionada.getRobots()){
+                temp.LlenarAgua(tempo);
             }
         }
-        */
+
         #endregion Methods
     }
 

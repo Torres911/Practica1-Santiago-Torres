@@ -21,7 +21,7 @@ namespace Codigo.Granja{
             return robots;
         }
 
-        public void setRobots(Robot.Robot value){ 
+        public void setRobots(Robot.Robot value){
             robots.Add(value);
         }
 
