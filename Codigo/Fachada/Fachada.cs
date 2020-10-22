@@ -48,7 +48,7 @@ namespace Codigo.Fachada{
                         break;
                     case 3:
                         Console.WriteLine("***************************************************************************");
-                        GranjaFachada.liberarRobots();
+                        GranjaFachada.LiberarRobots();
                         Console.WriteLine("***************************************************************************");
                         break;
                     case 4:
@@ -78,12 +78,12 @@ namespace Codigo.Fachada{
                         break;
                     case 9:
                         Console.WriteLine("***************************************************************************");
-                        //GranjaFachada.llenarAguaRobot();
+                        GranjaFachada.LlenarAguaRobot();
                         Console.WriteLine("***************************************************************************");
                         break;
                     case 10:
                         Console.WriteLine("***************************************************************************");
-                        //GranjaFachada.llenarSemillasRobot();
+                        GranjaFachada.LlenarSemillasRobot();
                         Console.WriteLine("***************************************************************************");
                         break;
                     case 11:

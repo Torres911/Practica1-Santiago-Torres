@@ -149,7 +149,7 @@ namespace Codigo.Granja{
             }
         }
 
-        public void llenarSemillasRobot(){
+        public void LlenarSemillasRobot(){
             Robot.GestorRobot temp = new Robot.GestorRobot();
             Console.WriteLine("Se ha abastecido a los robots con mas semillas.");
             foreach(Robot.Robot tempo in granjaSeleccionada.getRobots()){
@@ -157,7 +157,7 @@ namespace Codigo.Granja{
             }
         }
 
-        public void liberarRobots(){
+        public void LiberarRobots(){
             Robot.GestorRobot temp = new Robot.GestorRobot();
             Console.WriteLine("Se han liberado todos los robots de sus trabajos.");
             foreach(Robot.Robot tempo in granjaSeleccionada.getRobots()){
@@ -165,7 +165,7 @@ namespace Codigo.Granja{
             }
         }
 
-        public void llenarAguaRobot(){
+        public void LlenarAguaRobot(){
             Robot.GestorRobot temp = new Robot.GestorRobot();
             Console.WriteLine("Se ha abastecido a los robots con mas semillas.");
             foreach(Robot.Robot tempo in granjaSeleccionada.getRobots()){
