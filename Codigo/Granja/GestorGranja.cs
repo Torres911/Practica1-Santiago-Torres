@@ -30,6 +30,7 @@ namespace Codigo.Granja{
             foreach(Robot.Robot tempo in granjaSeleccionada.getRobots()){
                 if(tempo.getEstado() == "Disponible"){
                     tempo.setEstado("Moviendo Cultivos Dentro Domo");
+                    Console.WriteLine("Se ha reservado un robot para mover los cutivos al domo");
                     foreach(Cultivo.Cultivo temp in granjaSeleccionada.getCultivos()){
                         granjaSeleccionada.setDomo(temp);
                         flag = true;
@@ -48,6 +49,7 @@ namespace Codigo.Granja{
             foreach(Robot.Robot tempo in granjaSeleccionada.getRobots()){
                 if(tempo.getEstado() == "Disponible"){
                     tempo.setEstado("Moviendo Cultivos Fuera Domo");
+                    Console.WriteLine("Se ha reservado un robot para mover los cultivos fuera del domo.");
                     foreach(Cultivo.Cultivo temp in granjaSeleccionada.getDomo()){
                         granjaSeleccionada.setCultivos(temp);
                         flag = true;
@@ -66,6 +68,7 @@ namespace Codigo.Granja{
             foreach(Robot.Robot tempo in granjaSeleccionada.getRobots()){
                 if(tempo.getEstado() == "Disponible"){
                     tempo.setEstado("Revisando Temperatura");
+                    Console.WriteLine("Se ha reservado un robot para revisar la temperatura.");
                     foreach(Cultivo.Cultivo temp in granjaSeleccionada.getCultivos()){
                         if(temp.getTemperatura() < 18 || temp.getTemperatura() > 25){
                             Console.WriteLine("El cultivo de tipo " + temp.getTipoCultivo() + " se encuentra por encima de la temperatura apropiada");
@@ -87,6 +90,7 @@ namespace Codigo.Granja{
             foreach(Robot.Robot tempo in granjaSeleccionada.getRobots()){
                 if(tempo.getEstado() == "Disponible"){
                     tempo.setEstado("Arreglando Temperatura Cultivos");
+                    Console.WriteLine("Se ha reservado un robot para arreglar la temperatura de los cultivos afectados.");
                     foreach(Cultivo.Cultivo temp in granjaSeleccionada.getCultivos()){
                         if(temp.getTemperatura() < 18 || temp.getTemperatura() > 25){
                             temp.setTemperatura(cant);
@@ -109,6 +113,7 @@ namespace Codigo.Granja{
                 if(tempo.getEstado() == "Disponible" && tempo.getCantAgua() > 10){
                     tempo.setCantAgua(tempo.getCantAgua() - cant);
                     tempo.setEstado("Regando Cultivos");
+                    Console.WriteLine("Se ha reservado un robot para regar los cultivos.");
                     flag = true;
                     break;
                 }else if(tempo.getEstado() == "Disponible" && tempo.getCantAgua() < 10){
@@ -127,8 +132,9 @@ namespace Codigo.Granja{
             foreach(Robot.Robot tempo in granjaSeleccionada.getRobots()){
                 if(tempo.getEstado() == "Disponible" && tempo.getCantSemillas() > 10){
                     tempo.setCantSemillas(tempo.getCantSemillas() - cant);
+                    tempo.setEstado("Plantando Semillas");
+                    Console.WriteLine("Se ha reservado un robot para regar los cultivos.");
                     for (int i = 0; i < cant; i++){
-                        tempo.setEstado("Plantando Semillas");
                         Cultivo.Cultivo temp = new Cultivo.Cultivo();
                         granjaSeleccionada.setCultivos(temp);
                         flag = true;
@@ -145,6 +151,7 @@ namespace Codigo.Granja{
 
         public void llenarSemillasRobot(){
             Robot.GestorRobot temp = new Robot.GestorRobot();
+            Console.WriteLine("Se ha abastecido a los robots con mas semillas.");
             foreach(Robot.Robot tempo in granjaSeleccionada.getRobots()){
                 temp.LlenarSemillas(tempo);
             }
@@ -152,6 +159,7 @@ namespace Codigo.Granja{
 
         public void liberarRobots(){
             Robot.GestorRobot temp = new Robot.GestorRobot();
+            Console.WriteLine("Se han liberado todos los robots de sus trabajos.");
             foreach(Robot.Robot tempo in granjaSeleccionada.getRobots()){
                 temp.LiberarRobot(tempo);
             }
@@ -159,6 +167,7 @@ namespace Codigo.Granja{
 
         public void llenarAguaRobot(){
             Robot.GestorRobot temp = new Robot.GestorRobot();
+            Console.WriteLine("Se ha abastecido a los robots con mas semillas.");
             foreach(Robot.Robot tempo in granjaSeleccionada.getRobots()){
                 temp.LlenarAgua(tempo);
             }
@@ -166,5 +175,4 @@ namespace Codigo.Granja{
 
         #endregion Methods
     }
-
 }
